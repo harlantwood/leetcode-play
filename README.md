@@ -1,7 +1,13 @@
 # Testing
 
 ```bash
-deno test
+deno test --allow-env
+```
+
+or
+
+```bash
+DEBUG=true deno test --allow-env
 ```
 
 # Formatting

@@ -10,6 +10,7 @@ const testCases = [
   { input: 'ab', pattern: '.*', expected: true },
   { input: 'aab', pattern: 'c*a*b', expected: true },
   { input: 'mississippi', pattern: 'mis*is*p*.', expected: false },
+  { input: 'bbab', pattern: 'b*a*', expected: false },
 ]
 
 testCases.forEach(({ input, pattern, expected }) => {

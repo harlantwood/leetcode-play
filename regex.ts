@@ -1,5 +1,5 @@
 export function isMatch(input: string, pattern: string): boolean {
-  // console.log({ input, pattern })
+  log({ input, pattern })
   let result
   const firstMatch = input.length > 0 &&
     (input[0] === pattern[0] || pattern[0] === '.')
@@ -8,7 +8,7 @@ export function isMatch(input: string, pattern: string): boolean {
   } else if (pattern[1] === '*') {
     if (input.length === 0 && pattern.length === 2) {
       result = true
-    } else if (firstMatch && pattern.length === 2) {
+    } else if (firstMatch && input.length === 1 && pattern.length === 2) {
       result = true
     } else if (isMatch(input, pattern.slice(2))) {
       result = true
@@ -20,9 +20,16 @@ export function isMatch(input: string, pattern: string): boolean {
   } else if (firstMatch && isMatch(input.slice(1), pattern.slice(1))) {
     result = true
   } else {
-    // console.log('else: ', { input, pattern })
+    log('else: ', { input, pattern })
     result = false
   }
-  // console.log({ result })
+  log({ result })
   return result
+}
+
+function log(...args: any[]) {
+  // Use Deno.env.get() to access environment variables
+  if (Deno.env.get('DEBUG') === 'true') {
+    console.log(...args)
+  }
 }
