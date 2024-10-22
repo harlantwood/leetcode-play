@@ -1,3 +1,5 @@
+// see https://leetcode.com/problems/regular-expression-matching/description/
+
 const DEBUG = false
 
 let log = function (...args: any[]) {
@@ -34,6 +36,10 @@ function isMatch(input: string, pattern: string): boolean {
   log({ result })
   return result
 }
+
+// ^^^ up to here can be pasted into leetcode
+//
+// vvv below for testing locally in deno
 
 log = function (...args: any[]) {
   if (Deno.env.get('DEBUG') === 'true') {
