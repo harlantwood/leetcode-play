@@ -13,5 +13,5 @@ DEBUG=true deno test --allow-env
 # Formatting
 
 ```bash
-deno fmt --no-semicolons
+deno fmt
 ```
