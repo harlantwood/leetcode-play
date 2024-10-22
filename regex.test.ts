@@ -1,5 +1,5 @@
 import { expect } from 'jsr:@std/expect'
-import { isMatch } from './regex.ts'
+import { _isMatch as isMatch } from './regex.ts'
 
 const testCases = [
   { input: 'ab', pattern: '.*c', expected: false },

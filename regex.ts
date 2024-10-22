@@ -1,4 +1,12 @@
-export function isMatch(input: string, pattern: string): boolean {
+const DEBUG = false
+
+let log = function (...args: any[]) {
+  if (DEBUG) {
+    console.log(...args)
+  }
+}
+
+function isMatch(input: string, pattern: string): boolean {
   log({ input, pattern })
   let result
   const firstMatch = input.length > 0 &&
@@ -27,9 +35,12 @@ export function isMatch(input: string, pattern: string): boolean {
   return result
 }
 
-function log(...args: any[]) {
-  // Use Deno.env.get() to access environment variables
+log = function (...args: any[]) {
   if (Deno.env.get('DEBUG') === 'true') {
     console.log(...args)
   }
+}
+
+export function _isMatch(input: string, pattern: string): boolean {
+  return isMatch(input, pattern)
 }
