@@ -1,11 +1,12 @@
 export function isMatch(input: string, pattern: string): boolean {
   // console.log({ input, pattern })
   let result
-  const firstMatch = input[0] === pattern[0] || pattern[0] === '.'
+  const firstMatch = input.length > 0 &&
+    (input[0] === pattern[0] || pattern[0] === '.')
   if (input.length === 0 && pattern.length === 0) {
     result = true
   } else if (pattern[1] === '*') {
-    if (input.length === 0) {
+    if (input.length === 0 && pattern.length === 2) {
       result = true
     } else if (firstMatch && pattern.length === 2) {
       result = true
